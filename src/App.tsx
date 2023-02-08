@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import RegistrationForm from "./RegistrationForm";
+import Header from "./Header";
+import Counter from "./Counter";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const appName = 'TypeScript Examples'
+    const [counter, setCounter] = useState(0)
+
+    const changeCounter = (value: number) => {
+        setCounter(counter + value)
+    }
+    return (
+        <div className="App">
+            <Header name={appName}/>
+            <h3>User Registration Form</h3>
+            <RegistrationForm/>
+
+            <Counter counter={counter} changeCounter={changeCounter}/>
+        </div>
+    );
 }
 
 export default App;
